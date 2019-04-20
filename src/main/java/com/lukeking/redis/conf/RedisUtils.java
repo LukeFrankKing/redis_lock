@@ -39,8 +39,6 @@ public final class RedisUtils {
     
     public static JedisPool initPool() {
         try {
-            // maxActive ==> maxTotal
-            // maxWait ==> maxWaitMillis
             JedisPoolConfig config = new JedisPoolConfig();
             config.setMaxTotal(MAX_ACTIVE);
             config.setMaxIdle(MAX_IDLE);
@@ -140,7 +138,6 @@ public final class RedisUtils {
 			boolean o = jedis.scriptExists(hash);
 			return o;
 		} finally {
-			// TODO: handle finally clause
 			returnResource(jedis);
 		}
 	}
@@ -171,7 +168,6 @@ public final class RedisUtils {
 				e.printStackTrace();
 			}
 		} finally {
-			// TODO: handle finally clause
 			returnResource(jedis);
 		}
 		return null;
@@ -204,7 +200,6 @@ public final class RedisUtils {
 	 * 
 	 */
 	public static int evalSha(String script,List<String> keys,List<String> params) {
-		// TODO Auto-generated method stub
 		Jedis jedis = getJedis();
 		Object result = jedis.evalsha(script, keys, params);
 		System.out.println("evalsha result:"+result.toString());
@@ -218,7 +213,6 @@ public final class RedisUtils {
 	 * 
 	 */
 	public static String evalSha(String script,int keyCount,String...params) {
-		// TODO Auto-generated method stub
 		Jedis jedis = getJedis();
 		String result = jedis.evalsha(script, keyCount, params).toString();
 		return result;
