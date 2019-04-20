@@ -11,7 +11,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 /**
  * 
- * @author lukai
+ * @author lukai-test
  *
  */
 public final class RedisUtils {
