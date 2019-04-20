@@ -10,9 +10,8 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
- * Redis pool tool
  * 
- * @author Administrator
+ * @author lukai
  *
  */
 public final class RedisUtils {
